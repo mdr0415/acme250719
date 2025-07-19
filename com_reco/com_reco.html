@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기업 정보 검색</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .header-container {
+            background: linear-gradient(90deg, 
+                #2b689d 0%, 
+                #1e4976 25%, 
+                #2b689d 50%, 
+                #1e4976 75%, 
+                #2b689d 100%);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .title-container {
+            transition: all 0.3s ease;
+        }
+
+        .header-container:hover .title-container {
+            text-shadow: 0 0 15px rgba(186, 230, 253, 0.5);
+        }
+
+        .company-item {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .company-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn_page {
+            transition: all 0.3s ease;
+        }
+
+        .btn_page:hover {
+            transform: scale(1.1);
+            background-color: #2b689d;
+            color: white;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            appearance: none;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-200 py-8">
+    <div class="bg-white rounded-3xl shadow-lg w-11/12 max-w-4xl p-8">
+        <div class="header-container text-white p-8 rounded-2xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 mb-8">
+            <h1 class="text-5xl font-bold text-center tracking-wider relative z-10">
+                <div class="title-container">
+                    <span class="text-sky-300">기업 정보</span>
+                </div>
+            </h1>
+            <p class="text-center mt-4 tracking-wide relative z-10">
+                <div class="title-container text-center">
+                    <span class="text-blue-100 font-normal text-lg">
+                        대학연계 가족기업 및 인증회사 업체 리스트
+                    </span>
+                </div>
+            </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-6 mb-8 shadow-md">
+            <div class="flex space-x-4">
+                <div class="w-1/4">
+                    <select id="provinceFilter" class="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent text-gray-700 text-base transition-all duration-200">
+                        <option value="">전체 시/도</option>
+                    </select>
+                </div>
+                <div class="w-1/4">
+                    <select id="cityFilter" class="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent text-gray-700 text-base transition-all duration-200">
+                        <option value="">전체 시/군/구</option>
+                    </select>
+                </div>
+                <div class="w-1/2">
+                    <input type="text" 
+                           id="searchInput" 
+                           placeholder="기업명으로 검색" 
+                           class="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent text-gray-700 text-base transition-all duration-200">
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="text-center text-gray-600 py-4">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+            <p class="mt-4">기업 정보를 불러오는 중입니다...</p>
+        </div>
+
+        <div id="error" class="hidden text-center text-red-500 py-4 bg-red-50 rounded-xl"></div>
+
+        <div id="output" class="space-y-4"></div>
+        
+        <div id="pagination" class="flex items-center justify-center space-x-6 mt-8">
+            <button id="prevPage" class="btn_page prev bg-gray-50 rounded-lg px-6 py-2 text-gray-700 font-medium transition-all duration-200 hover:bg-blue-500 hover:text-white">이전</button>
+            <div class="page_num text-gray-700 text-lg font-medium">
+                <span id="currentPage" class="text-blue-600">1</span> / <span id="totalPages">1</span>
+            </div>
+            <button id="nextPage" class="btn_page next bg-gray-50 rounded-lg px-6 py-2 text-gray-700 font-medium transition-all duration-200 hover:bg-blue-500 hover:text-white">다음</button>
+        </div>
+    </div>
+
+    <script src="com_reco.js"></script>
+</body>
+
+</html>

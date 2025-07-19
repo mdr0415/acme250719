@@ -1,0 +1,128 @@
+/* 기본 스타일 및 레이아웃 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* 전체 컨테이너 스타일 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 필터 섹션 스타일 */
+.filter-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+}
+
+.filter-section select,
+.filter-section input {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 직업 목록 스타일 */
+.job-list {
+    margin-top: 20px;
+}
+
+/* 개별 직업 항목 스타일 */
+.job-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.job-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 항목 제목 스타일 */
+.item-title {
+    color: #0066cc;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* 항목 정보 스타일 */
+.item-info {
+    color: #666;
+    font-size: 0.95em;
+}
+
+/* 항목 번호 스타일 */
+.item-number {
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* 페이지네이션 버튼 스타일 */
+.pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #f0f0f0;
+}
+
+/* 비활성화된 페이지 버튼 스타일 */
+.pagination button:disabled {
+    background-color: #f0f0f0;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* 페이지 정보 스타일 */
+.page-info {
+    margin: 0 10px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .filter-section select,
+    .filter-section input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .pagination button {
+        padding: 6px 10px;
+    }
+}
+

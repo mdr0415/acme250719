@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.C.M.E.</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 400;
+        }
+        
+        .acme-title {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+        }
+        .card {
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+            transform-origin: center center;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-content-wrapper {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card:hover .card-content-wrapper {
+            transform: scale(1.01);
+        }
+
+        .header-container {
+            background: linear-gradient(90deg, 
+                #1B3D37 0%, 
+                #0F2A25 25%, 
+                #1B3D37 50%, 
+                #0F2A25 75%, 
+                #1B3D37 100%);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .header-container:hover::before {
+            opacity: 1;
+        }
+
+        .title-container {
+            transition: all 0.3s ease;
+        }
+
+        /* 좌우 바운스 효과 임시 비활성화
+        @keyframes bounceX {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(25px); }
+        }
+        */
+
+        .header-container:hover .title-container {
+            text-shadow: 0 0 15px rgba(186, 230, 253, 0.5);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-200 py-8">
+    <div class="bg-white rounded-3xl shadow-lg w-11/12 max-w-4xl p-8">
+        <div class="header-container text-white p-8 rounded-2xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+            <h1 class="text-5xl font-bold text-center tracking-wider relative z-10">
+                <div class="title-container">
+                    <span class="text-sky-300 acme-title">A.C.M.E.</span>
+                </div>
+            </h1>
+            <p class="text-center mt-4 tracking-wide relative z-10">
+                <a href="#" style="color: inherit;" class="block text-center">
+                    <div class="title-container text-center">
+                        <span class="text-blue-100 font-normal text-lg">
+                            <span class="acme-title">A</span>ssistant AI · <span class="acme-title">C</span>onsultant AI · <span class="acme-title">M</span>ediator AI · <span class="acme-title">E</span>ducator AI
+                        </span>
+                    </div>
+                </a>
+            </p>
+        </div>
+        <div class="font-bold text-3xl text-center my-8"></div>
+        <div class="grid grid-cols-2 gap-8">
+            <div class="card bg-gray-100 rounded-2xl shadow-md">
+                <a href="1_AssistantAI.html" class="block text-center" style="color: inherit;">
+                    <div class="card-content-wrapper">
+                        <img src="img/assistant-ai.png" alt="Assistant AI" class="w-full rounded-t-2xl">
+                        <div class="p-5">
+                            <p class="text-xl font-semibold" style="color: #1B333D;">
+                                <span style="color: #008B8B;">A</span>ssistant AI <span class="text-base">(조력자 <span style="color: #008B8B;">AI</span>)</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card bg-gray-100 rounded-2xl shadow-md">
+                <a href="2_ConsultantAI.html" class="block text-center" style="color: inherit;">
+                    <div class="card-content-wrapper">
+                        <img src="img/consultant-ai.png" alt="Consultant AI" class="w-full rounded-t-2xl">
+                        <div class="p-5">
+                            <p class="text-xl font-semibold" style="color: #1B333D;">
+                                <span style="color: #008B8B;">C</span>onsultant AI <span class="text-base">(상담자 <span style="color: #008B8B;">AI</span>)</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card bg-gray-100 rounded-2xl shadow-md">
+                <a href="http://wku.test.ubiqos.co.kr:9080/cmp/main/main.do" class="block text-center" style="color: inherit;">
+                    <div class="card-content-wrapper">
+                        <img src="img/medicator-ai.png" alt="Medicator AI" class="w-full rounded-t-2xl">
+                        <div class="p-5">
+                            <p class="text-xl font-semibold" style="color: #1B333D;">
+                                <span style="color: #008B8B;">M</span>ediator AI <span class="text-base">(중재자 <span style="color: #008B8B;">AI</span>)</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card bg-gray-100 rounded-2xl shadow-md">
+                <a href="https://tinyurl.com/aiworkshop2024" class="block text-center" style="color: inherit;">
+                    <div class="card-content-wrapper">
+                        <img src="img/educator-ai.png" alt="Educator AI" class="w-full rounded-t-2xl">
+                        <div class="p-5">
+                            <p class="text-xl font-semibold" style="color: #1B333D;">
+                                <span style="color: #008B8B;">E</span>ducator AI <span class="text-base">(교육자 <span style="color: #008B8B;">AI</span>)</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

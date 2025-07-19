@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultant AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .header-container {
+            background: linear-gradient(90deg, 
+                #2b689d 0%, 
+                #1e4976 25%, 
+                #2b689d 50%, 
+                #1e4976 75%, 
+                #2b689d 100%);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .title-container {
+            transition: all 0.3s ease;
+        }
+
+        .header-container:hover .title-container {
+            text-shadow: 0 0 15px rgba(186, 230, 253, 0.5);
+        }
+
+        .card {
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+            transform-origin: center center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-200 py-8">
+    <div class="bg-white rounded-3xl shadow-lg w-11/12 max-w-4xl p-8">
+        <div class="header-container text-white p-8 rounded-2xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+            <h1 class="text-5xl font-bold text-center tracking-wider relative z-10">
+                <div class="title-container">
+                    <span class="text-sky-300">Consultant AI</span>
+                </div>
+            </h1>
+            <p class="text-center mt-4 tracking-wide relative z-10">
+                <div class="title-container text-center">
+                    <span class="text-blue-100 font-normal text-lg">
+                        취업 컨설팅을 위한 AI 서비스
+                    </span>
+                </div>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 mt-8">
+            <div class="card bg-gray-50 rounded-xl shadow-md p-8">
+                <a href="job_info/job_info.html" class="block text-center">
+                    <p class="text-2xl font-semibold text-gray-700 mb-4">지역별 실시간 채용 정보</p>
+                    <p class="text-lg text-gray-500">각 지역별 최신 채용 정보를 확인하실 수 있습니다</p>
+                </a>
+            </div>
+            <div class="card bg-gray-50 rounded-xl shadow-md p-8">
+                <a href="com_reco/com_reco.html" class="block text-center">
+                    <p class="text-2xl font-semibold text-gray-700 mb-4">대학연계 가족기업 및 인증회사 업체 리스트</p>
+                    <p class="text-lg text-gray-500">우리 대학과 연계된 우수 기업들의 정보를 확인하실 수 있습니다</p>
+                </a>
+            </div>
+            <div class="card bg-gray-50 rounded-xl shadow-md p-8">
+                <a href="https://www.educe.co.kr/" class="block text-center">
+                    <p class="text-2xl font-semibold text-gray-700 mb-4">취업합격자 스펙통합 검색엔진</p>
+                    <p class="text-lg text-gray-500">취업 성공 사례와 합격자 스펙을 검색할 수 있습니다</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
