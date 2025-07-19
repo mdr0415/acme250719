@@ -6,14 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>채용 정보 검색</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 400;
+        }
         .header-container {
             background: linear-gradient(90deg, 
-                #2b689d 0%, 
-                #1e4976 25%, 
-                #2b689d 50%, 
-                #1e4976 75%, 
-                #2b689d 100%);
+                #1B3D37 0%, 
+                #0F2A25 25%, 
+                #1B3D37 50%, 
+                #0F2A25 75%, 
+                #1B3D37 100%);
             background-size: 200% 200%;
             animation: gradientAnimation 15s ease infinite;
             transition: all 0.3s ease-in-out;
@@ -46,11 +51,18 @@
 
         .btn_page {
             transition: all 0.3s ease;
+            background-color: #1B3D37;
+            color: white;
         }
 
         .btn_page:hover {
             transform: scale(1.1);
-            background-color: #2b689d;
+            background-color: #0F2A25;
+            color: white;
+        }
+
+        .detail-btn:hover {
+            background: #0F2A25 !important;
             color: white;
         }
     </style>
@@ -105,7 +117,7 @@
             <div class="paging flex items-center justify-center space-x-4 mt-8">
                 <a href="#" id="prevPage" class="btn_page prev bg-gray-50 rounded-lg px-4 py-2 text-gray-700">이전</a>
                 <div class="page_num text-gray-700">
-                    <strong id="currentPage" class="text-blue-600">1</strong> / <span id="totalPages">1</span>
+                    <strong id="currentPage" style="color:#1B3D37;">1</strong> / <span id="totalPages">1</span>
                 </div>
                 <a href="#" id="nextPage" class="btn_page next bg-gray-50 rounded-lg px-4 py-2 text-gray-700">다음</a>
             </div>

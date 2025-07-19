@@ -162,7 +162,7 @@ function setupPagination() {
             이전
         </button>
         <div class="page_num text-gray-700">
-            <strong id="currentPage" class="text-blue-600">${currentPage}</strong> / <span id="totalPages">${totalPages}</span>
+            <strong id="currentPage" style="color:#1B3D37;">${currentPage}</strong> / <span id="totalPages">${totalPages}</span>
         </div>
         <button ${currentPage === totalPages ? 'disabled' : ''} 
                 onclick="changePage(${currentPage + 1})" 

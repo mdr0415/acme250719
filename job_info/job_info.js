@@ -67,6 +67,8 @@ async function fetchJobs() {
         currentPage = 1;  // 현재 페이지를 1로 리셋
         const totalPages = Math.ceil(filteredJobs.length / displayCount);
         currentPageElement.textContent = currentPage;
+        currentPageElement.removeAttribute("class");
+        currentPageElement.style.color = "#1B3D37";
         totalPagesElement.textContent = totalPages;
 
         // 페이지네이션 처리 및 화면에 표시
@@ -111,7 +113,7 @@ function renderJobs() {
                     </div>
                     <div class="pt-3 flex justify-center">
                         <a href="${url}" target="_blank" 
-                           class="inline-block bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                           style="background:#1B3D37;" class="detail-btn inline-block text-white px-4 py-2 rounded-lg transition-colors duration-200">
                             상세보기
                         </a>
                     </div>
@@ -122,6 +124,8 @@ function renderJobs() {
 
     // 페이지 정보 업데이트
     currentPageElement.textContent = currentPage;
+    currentPageElement.removeAttribute("class");
+    currentPageElement.style.color = "#1B3D37";
     totalPagesElement.textContent = Math.ceil(filteredJobs.length / displayCount);
 
     // 페이지네이션 업데이트
@@ -159,7 +163,7 @@ function setupPagination() {
             이전
         </button>
         <div class="page_num text-gray-700">
-            <strong id="currentPage" class="text-blue-600">${currentPage}</strong> / <span id="totalPages">${totalPages}</span>
+            <strong id="currentPage" style="color:#1B3D37;">${currentPage}</strong> / <span id="totalPages">${totalPages}</span>
         </div>
         <button ${currentPage === totalPages ? 'disabled' : ''} 
                 onclick="changePage(${currentPage + 1})" 
